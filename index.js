@@ -12,7 +12,7 @@ function yarnInstall(_, config) {
 	};
 
 	return new Promise((resolve, reject) => {
-		const npmI = spawn('yarn', ['install'], spawnOptions);
+		const yarnI = spawn('yarn', ['install'], spawnOptions);
 
 		yarnI.on('close', (code) => {
 			if (didSucceed(code)) {

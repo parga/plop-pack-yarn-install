@@ -1,6 +1,6 @@
 {
   "name": "plop-pack-yarn-install",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "repository": "git@github.com:parga/plop-pack-yarn-install.git",
   "author": "Jorge Parga <el.parga@gmail.com>",
