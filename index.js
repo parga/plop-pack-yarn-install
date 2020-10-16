@@ -2,17 +2,19 @@ const { spawn } = require('child_process');
 
 const didSucceed = (code) => `${code}` === '0';
 
-function yarnInstall(_, config) {
-	const spawnOptions = config.verbose ? {
-		cwd: config.path,
+function yarnInstall(_, {verbose, path, params}) {
+
+	const spawnOptions = verbose ? {
+		cwd: path,
 		shell: true,
 		stdio: 'inherit',
 	} : {
-		cwd: config.path
+		cwd: path
 	};
 
 	return new Promise((resolve, reject) => {
-		const yarnI = spawn('yarn', ['install'], spawnOptions);
+		console.log('executing', ['yarn', ...params].join(' '), 'with options : ', spawnOptions);
+		const yarnI = spawn('yarn', [...params], spawnOptions);
 
 		yarnI.on('close', (code) => {
 			if (didSucceed(code)) {
